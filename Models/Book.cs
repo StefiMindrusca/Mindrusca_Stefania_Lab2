@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Policy;
+using Mindrusca_Stefania_Lab2.Migrations;
 
 namespace Mindrusca_Stefania_Lab2.Models
 {
@@ -21,5 +22,7 @@ namespace Mindrusca_Stefania_Lab2.Models
 
         public int? PublisherID { get; set; }
         public Publisher? Publisher { get; set; }
+
+        public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }

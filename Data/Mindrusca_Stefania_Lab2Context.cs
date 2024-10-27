@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Mindrusca_Stefania_Lab2.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace Mindrusca_Stefania_Lab2.Data
 {
@@ -16,5 +17,7 @@ namespace Mindrusca_Stefania_Lab2.Data
 
         public DbSet<Mindrusca_Stefania_Lab2.Models.Book> Book { get; set; } = default!;
         public DbSet<Mindrusca_Stefania_Lab2.Models.Publisher> Publisher { get; set; } = default!;
+        public DbSet<Mindrusca_Stefania_Lab2.Models.Category> Category { get; set; } = default!;
+
     }
 }

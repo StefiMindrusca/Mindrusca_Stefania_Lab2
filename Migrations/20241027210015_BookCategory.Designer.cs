@@ -12,8 +12,8 @@ using Mindrusca_Stefania_Lab2.Data;
 namespace Mindrusca_Stefania_Lab2.Migrations
 {
     [DbContext(typeof(Mindrusca_Stefania_Lab2Context))]
-    [Migration("20241020202426_UpdateBooksAndAuthors")]
-    partial class UpdateBooksAndAuthors
+    [Migration("20241027210015_BookCategory")]
+    partial class BookCategory
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,27 +25,6 @@ namespace Mindrusca_Stefania_Lab2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Authors", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Authors");
-                });
-
             modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Book", b =>
                 {
                     b.Property<int>("ID")
@@ -54,8 +33,9 @@ namespace Mindrusca_Stefania_Lab2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("AuthorID")
-                        .HasColumnType("int");
+                    b.Property<string>("Author")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6, 2)");
@@ -72,11 +52,49 @@ namespace Mindrusca_Stefania_Lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("AuthorID");
-
                     b.HasIndex("PublisherID");
 
                     b.ToTable("Book");
+                });
+
+            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.BookCategory", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.ToTable("BookCategory");
+                });
+
+            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Publisher", b =>
@@ -98,24 +116,40 @@ namespace Mindrusca_Stefania_Lab2.Migrations
 
             modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Book", b =>
                 {
-                    b.HasOne("Mindrusca_Stefania_Lab2.Models.Authors", "Author")
-                        .WithMany("Books")
-                        .HasForeignKey("AuthorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Mindrusca_Stefania_Lab2.Models.Publisher", "Publisher")
                         .WithMany("Books")
                         .HasForeignKey("PublisherID");
 
-                    b.Navigation("Author");
-
                     b.Navigation("Publisher");
                 });
 
-            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Authors", b =>
+            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.BookCategory", b =>
                 {
-                    b.Navigation("Books");
+                    b.HasOne("Mindrusca_Stefania_Lab2.Models.Book", "Book")
+                        .WithMany("BookCategories")
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Mindrusca_Stefania_Lab2.Models.Category", "Category")
+                        .WithMany("BookCategories")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Book", b =>
+                {
+                    b.Navigation("BookCategories");
+                });
+
+            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Category", b =>
+                {
+                    b.Navigation("BookCategories");
                 });
 
             modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Publisher", b =>
