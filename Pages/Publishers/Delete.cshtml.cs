@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Mindrusca_Stefania_Lab2.Data;
-using Mindrusca_Stefania_Lab2.Models;
+using Mindrusca_Stefania_Laborator2.Data;
+using Mindrusca_Stefania_Laborator2.Models;
 
-namespace Mindrusca_Stefania_Lab2.Pages.Publishers
+namespace Mindrusca_Stefania_Laborator2.Pages.Publishers
 {
     public class DeleteModel : PageModel
     {
-        private readonly Mindrusca_Stefania_Lab2.Data.Mindrusca_Stefania_Lab2Context _context;
+        private readonly Mindrusca_Stefania_Laborator2.Data.Mindrusca_Stefania_Laborator2Context _context;
 
-        public DeleteModel(Mindrusca_Stefania_Lab2.Data.Mindrusca_Stefania_Lab2Context context)
+        public DeleteModel(Mindrusca_Stefania_Laborator2.Data.Mindrusca_Stefania_Laborator2Context context)
         {
             _context = context;
         }

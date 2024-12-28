@@ -1,4 +1,4 @@
-﻿namespace Mindrusca_Stefania_Lab2.Models
+﻿namespace Mindrusca_Stefania_Laborator2.Models
 {
     public class Publisher
     {

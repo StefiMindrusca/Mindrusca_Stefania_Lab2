@@ -1,5 +1,5 @@
 ﻿@page
-@model Mindrusca_Stefania_Lab2.Pages.Books.EditModel
+@model Mindrusca_Stefania_Laborator2.Pages.Books.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -20,9 +20,10 @@
                 <span asp-validation-for="Book.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Book.Author" class="control-label"></label>
-                <input asp-for="Book.Author" class="form-control" />
-                <span asp-validation-for="Book.Author" class="text-danger"></span>
+                <label asp-for="Book.AuthorID" class="control-label">Author</label>
+                <select asp-for="Book.AuthorID" class="form-control" asp-items="ViewBag.AuthorID">
+                </select>
+                <span asp-validation-for="Book.AuthorID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Book.Price" class="control-label"></label>
@@ -37,7 +38,7 @@
             <div class="form-group">
                 <label asp-for="Book.PublisherID" class="control-label">Publisher Name</label>
                 <select asp-for="Book.PublisherID" class="form-control" asp-items="ViewBag.PublisherID">
-                </select>
+            </select>
                 <span asp-validation-for="Book.PublisherID" class="text-danger"></span>
             </div>
             <div class="form-group">

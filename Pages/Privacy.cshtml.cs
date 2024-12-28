@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Mindrusca_Stefania_Lab2.Pages
+namespace Mindrusca_Stefania_Laborator2.Pages
 {
     public class PrivacyModel : PageModel
     {

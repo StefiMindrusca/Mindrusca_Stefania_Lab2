@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Mindrusca_Stefania_Lab2.Data;
+using Mindrusca_Stefania_Laborator2.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<Mindrusca_Stefania_Lab2Context>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Mindrusca_Stefania_Lab2Context") ?? throw new InvalidOperationException("Connection string 'Mindrusca_Stefania_Lab2Context' not found.")));
+builder.Services.AddDbContext<Mindrusca_Stefania_Laborator2Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Mindrusca_Stefania_Laborator2Context") ?? throw new InvalidOperationException("Connection string 'Mindrusca_Stefania_Laborator2Context' not found.")));
 
 var app = builder.Build();
 
