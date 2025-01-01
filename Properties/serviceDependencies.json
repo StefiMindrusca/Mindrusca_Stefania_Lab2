@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:Mindrusca_Stefania_Lab2Context"
-    }
-  }
-}
