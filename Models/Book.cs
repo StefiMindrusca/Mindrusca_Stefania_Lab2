@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Policy;
 
-namespace Mindrusca_Stefania_Laborator2.Models
+namespace Mindrusca_Stefania_Lab2.Models
 {
     public class Book
     {
