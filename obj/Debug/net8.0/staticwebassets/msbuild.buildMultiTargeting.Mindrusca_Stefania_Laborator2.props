@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Mindrusca_Stefania_Laborator2.props" />
+</Project>
