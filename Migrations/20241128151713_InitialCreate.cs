@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Mindrusca_Stefania_Laborator2.Migrations
+namespace Mindrusca_Stefania_Lab2.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
