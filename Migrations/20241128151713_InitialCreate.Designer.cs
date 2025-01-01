@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Mindrusca_Stefania_Laborator2.Data;
+using Mindrusca_Stefania_Lab2.Data;
 
 #nullable disable
 
-namespace Mindrusca_Stefania_Laborator2.Migrations
+namespace Mindrusca_Stefania_Lab2.Migrations
 {
-    [DbContext(typeof(Mindrusca_Stefania_Laborator2Context))]
+    [DbContext(typeof(Mindrusca_Stefania_Lab2Context))]
     [Migration("20241128151713_InitialCreate")]
     partial class InitialCreate
     {
@@ -24,7 +24,7 @@ namespace Mindrusca_Stefania_Laborator2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Mindrusca_Stefania_Laborator2.Models.Book", b =>
+            modelBuilder.Entity("Mindrusca_Stefania_Lab2.Models.Book", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
